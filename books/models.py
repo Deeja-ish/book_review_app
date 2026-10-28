@@ -37,6 +37,8 @@ class Book(models.Model):
     publication_date = models.DateField()
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='book_author')
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='book_genre')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
     class Meta:
         ordering = ['title']
