@@ -12,7 +12,7 @@ class Review(models.Model):
         MaxValueValidator(5, message="Rating Cannot be higher that five")
 
     ])
-    comment = models.TextField(max_length=10000, blank=True, null=True)
+    comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
@@ -26,4 +26,4 @@ class Review(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.book} - {self.rating} - {self.user__username}"
+        return f"{self.book} - {self.rating} - {self.user.username}"
